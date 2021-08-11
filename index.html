@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modal form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body > * {
+        visibility: hidden;
+      }
+      #preload {
+        visibility: visible;
+        will-change: opacity, visibility;
+        transition: opacity 500ms, visibility 500ms;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 99999;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <div id="preload"></div>
+    <header>
+      <h1>Simplest Possible Modal</h1>
+    </header>
+    <main>
+      <span>
+        <button data-target="modal01" data-toggle="modal">Reveal</button>
+        <p>Click a button to activate a modal.</p>
+      </span>
+    </main>
+    <div id="modal01" class="modal">
+      <div class="modal-window">
+        <svg viewBox="0 0 16 16" class="close" data-dismiss="modal">
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+        <h3>Sign Me Up</h3>
+        <form method="POST">
+          <input type="text" id="fname" placeholder="First Name" required />
+          <input type="text" id="lname" placeholder="Last Name" required />
+          <select name="gender" id="gender">
+            <option value="0" selected disabled hidden>Gender</option>
+            <option value="1">Female</option>
+            <option value="2">Male</option>
+            <option value="3">Non-binary</option>
+          </select>
+          <input
+            type="tel"
+            id="phone"
+            minlength="8"
+            placeholder="Phone Number"
+          />
+          <input type="email" id="mail" placeholder="Email" required />
+          <label for="promo">
+            Receive promotion emails
+            <input type="checkbox" id="promo" />
+          </label>
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+    <script defer>
+      // largely redudant dom loaded check
+      document.addEventListener("DOMContentLoaded", () => {
+        // load css late
+        document
+          .querySelector("head")
+          .insertAdjacentHTML(
+            "beforeend",
+            '<link rel="stylesheet" type="text/css" href="/css/style.min.css">'
+          );
+
+        // fade in from white
+        const preload = document.querySelector("#preload");
+        preload.style.opacity = 0;
+        preload.style.visibility = "hidden";
+      });
+    </script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/form.js" defer></script>
+  </body>
+</html>
