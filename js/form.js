@@ -1,5 +1,8 @@
 document.querySelector("form").addEventListener("submit", (e) => {
+  // prevent reloading the page
   e.preventDefault();
+  // change button styling
+
   // store input values
   const first_name = document.getElementById("fname").value,
     last_name = document.getElementById("lname").value,

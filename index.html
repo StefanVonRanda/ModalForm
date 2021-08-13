@@ -26,7 +26,7 @@
   <body>
     <div id="preload"></div>
     <header>
-      <h1>Simplest Possible Modal</h1>
+      <h1>Modalform in Action</h1>
     </header>
     <main>
       <span>
@@ -46,27 +46,66 @@
         </svg>
         <h3>Sign Me Up</h3>
         <form method="POST">
-          <input type="text" id="fname" placeholder="First Name" required />
-          <input type="text" id="lname" placeholder="Last Name" required />
-          <select name="gender" id="gender">
-            <option value="0" selected disabled hidden>Gender</option>
-            <option value="1">Female</option>
-            <option value="2">Male</option>
-            <option value="3">Non-binary</option>
-          </select>
-          <input
-            type="tel"
-            id="phone"
-            pattern="[0-9]{8}"
-            minlength="8"
-            placeholder="Phone Number"
-          />
-          <input type="email" id="mail" placeholder="Email" required />
-          <label for="promo">
-            Receive promotion emails
-            <input type="checkbox" id="promo" />
+          <label for="fname">
+            <input
+              type="text"
+              name="name"
+              id="fname"
+              placeholder=" "
+              required
+            />
+            <span>First Name<i>*</i></span>
           </label>
-          <input type="submit" />
+
+          <label for="lname">
+            <input
+              type="text"
+              name="name"
+              id="lname"
+              placeholder=" "
+              required
+            />
+            <span>Last Name<i>*</i></span>
+          </label>
+
+          <label for="gender">
+            <select name="gender" id="gender">
+              <option value="0" selected disabled>Gender</option>
+              <option value="1">Female</option>
+              <option value="2">Male</option>
+              <option value="3">Non-binary</option>
+            </select>
+          </label>
+
+          <label for="phone">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              pattern="[0-9]{8}"
+              minlength="8"
+              placeholder=" "
+            />
+            <span>Phone Number</span>
+          </label>
+
+          <label for="mail">
+            <input
+              type="email"
+              name="mail"
+              id="mail"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              placeholder=" "
+            />
+            <span>Email</span>
+          </label>
+          <label for="promo">
+            <input type="checkbox" name="promo" id="promo" /> Receive promotion
+            emails
+          </label>
+          <label for="">
+            <input type="submit" />
+          </label>
         </form>
       </div>
     </div>
