@@ -96,14 +96,16 @@
               id="mail"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               placeholder=" "
+              required
             />
-            <span>Email</span>
+            <span>Email*</span>
           </label>
-          <label for="promo">
-            <input type="checkbox" name="promo" id="promo" /> Receive promotion
-            emails
+          <label for="promo" class="checkbox">
+            <input type="checkbox" name="promo" id="promo" />
+            <div class="checkmark"></div>
+            <span class="label">Receive promotional emails</span>
           </label>
-          <label for="">
+          <label>
             <input type="submit" />
           </label>
         </form>

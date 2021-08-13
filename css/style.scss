@@ -223,16 +223,6 @@ form {
       }
     }
 
-    &[for="promo"] {
-      display: flex;
-      gap: 0.25rem;
-      box-shadow: 0 1px 0 0 var(--accent);
-
-      input {
-        box-shadow: unset;
-      }
-    }
-
     span {
       transform: translate(2px, -1.25rem);
       pointer-events: none;
@@ -241,6 +231,53 @@ form {
 
     select {
       height: 24px;
+    }
+  }
+
+  .checkbox {
+    user-select: none;
+
+    input[type="checkbox"] {
+      display: none;
+
+      &:checked + .checkmark {
+        //background: var(--accent);
+        box-shadow: inset 0 0 0 2px var(--accent);
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          padding: 0.27em;
+          background: var(--accent);
+          border-radius: 2px;
+        }
+      }
+
+      &:hover + .checkmark {
+        box-shadow: inset 0 0 0 2px var(--accent);
+      }
+    }
+
+    .checkmark {
+      will-change: box-shadow, background;
+      transition: box-shadow 200ms, background 200ms;
+      display: inline-block;
+      width: 1.2em;
+      height: 1.2em;
+      border-radius: 5px;
+      transform: translateY(0.25rem);
+      box-shadow: inset 0 0 0 2px var(--gray);
+
+      &:hover,
+      &:focus {
+        box-shadow: inset 0 0 0 2px var(--accent);
+      }
+    }
+
+    span {
+      transform: translate(1.5rem, -1rem);
     }
   }
 
