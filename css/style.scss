@@ -13,7 +13,7 @@
 // variable values
 :root {
   --background: #e0f2f1;
-  --color: #000;
+  --color: #333;
   --accent: #009688;
   --red: #f44336;
   --gray: #756c6d;
@@ -283,5 +283,58 @@ form {
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
+  }
+}
+
+.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.progress,
+.complete {
+  will-change: opacity, visibility;
+  transition: opacity 150ms, visibility 150ms;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--background);
+  color: var(--gray);
+  z-index: +1;
+
+  span {
+    text-align: center;
+    font-size: 1.25rem;
+
+    h3 {
+      display: block;
+    }
+
+    svg {
+      fill: currentColor;
+      padding: 1em;
+      width: 2em;
+      animation: spin 750ms infinite linear;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.complete {
+  background: #fff;
+  color: var(--accent);
+
+  span {
+    svg {
+      width: 4rem;
+      padding: 0;
+      animation: unset;
+    }
   }
 }

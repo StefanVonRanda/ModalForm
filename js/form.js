@@ -1,8 +1,8 @@
 document.querySelector("form").addEventListener("submit", (e) => {
   // prevent reloading the page
   e.preventDefault();
-  // change button styling
-
+  // change modal styling
+  document.querySelector(".progress").classList.remove("hidden");
   // store input values
   const first_name = document.getElementById("fname").value,
     last_name = document.getElementById("lname").value,
@@ -31,6 +31,8 @@ document.querySelector("form").addEventListener("submit", (e) => {
     })
     .then((data) => {
       // display response object from api
+      document.querySelector(".progress").classList.add("hidden");
+      document.querySelector(".complete").classList.remove("hidden");
       console.log(data);
       document.getElementById("results").innerHTML = `
       <h3>Good news ${data.first_name}!</h3>

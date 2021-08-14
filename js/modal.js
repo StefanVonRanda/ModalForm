@@ -6,9 +6,15 @@
     if (target.getAttribute("data-toggle") == "modal") {
       if (target.hasAttribute("data-target")) {
         const modalID = target.getAttribute("data-target");
-        // offset modal position by target height
-        document.querySelector("#" + modalID + " .modal-window").style.top =
-          target.offsetTop - target.offsetHeight + "px";
+        // if on mobile position near top
+        if (document.body.offsetWidth < 640) {
+          document.querySelector("#" + modalID + " .modal-window").style.top =
+            "20%";
+        } else {
+          // offset modal position by target height
+          document.querySelector("#" + modalID + " .modal-window").style.top =
+            target.offsetTop - target.offsetHeight + "px";
+        }
         // reveal the correct modal at target position
         document.getElementById(modalID).classList.add("open");
       }
