@@ -84,16 +84,13 @@ body {
 
 // Modal styling.. duh
 .modal {
-  will-change: opacity, visibility;
   position: fixed;
   inset: 0;
   z-index: 9999;
-  transition: opacity 200ms, visibility 200ms;
   visibility: hidden;
   opacity: 0;
 
   .modal-window {
-    will-change: width, visibility;
     position: relative;
     margin: 0 auto;
     background: #fff;
@@ -105,14 +102,13 @@ body {
     visibility: hidden;
     width: 0;
     height: 0;
-    transition: width 1s, visibility 500ms;
 
     & > * {
       will-change: opacity, visibility;
+      transition: visibility 200ms, opacity 200ms;
+      transition-delay: 500ms;
       visibility: hidden;
       opacity: 0;
-      transition: visibility 200ms, opacity 200ms;
-      transition-delay: 900ms;
     }
 
     h3 {
@@ -143,10 +139,14 @@ body {
 }
 
 .open {
+  will-change: opacity, visibility;
+  transition: opacity 200ms, visibility 200ms;
   visibility: visible;
   opacity: 1;
 
   & .modal-window {
+    will-change: width, visibility;
+    transition: width 500ms, visibility 200ms;
     visibility: visible;
     width: clamp(240px, 50%, 640px);
     height: auto;
@@ -287,14 +287,14 @@ form {
 }
 
 .hidden {
+  will-change: opacity, visibility;
+  transition: opacity 150ms, visibility 150ms;
   opacity: 0 !important;
   visibility: hidden !important;
 }
 
 .progress,
 .complete {
-  will-change: opacity, visibility;
-  transition: opacity 150ms, visibility 150ms;
   position: absolute;
   inset: 0;
   display: grid;
