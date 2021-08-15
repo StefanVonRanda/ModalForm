@@ -1,4 +1,5 @@
-const translation = ((e) => {
+// Encapsulated language logic
+(() => {
   // translation objects
   const englishLang = [
     [langHeader, "Modalform in Action"],
