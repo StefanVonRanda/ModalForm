@@ -1,9 +1,9 @@
 const translation = ((e) => {
-// translation objects
-const englishLang = [
+  // translation objects
+  const englishLang = [
     [langHeader, "Modalform in Action"],
     [langRevealButton, "Reveal"],
-    [langRevealHint, "Click a button to activate a modal."],
+    [langRevealHint, "Click to activate the modal."],
     [langModalHeader, "Sign Me Up"],
     [langFirstName, "First Name"],
     [langLastName, "Last Name"],
@@ -18,12 +18,12 @@ const englishLang = [
     [langLoading, "Loading"],
     [langThanks, "Thanks for signing up"],
     [langError, "Unable to sign you up"],
-    [langErrorSub, "Please try again later"]
-]
-const danishLang = [
+    [langErrorSub, "Please try again later"],
+  ];
+  const danishLang = [
     [langHeader, "Modalform i aktion"],
     [langRevealButton, "Vis modalen"],
-    [langRevealHint, "Klik knappen for at vise modalen frem"],
+    [langRevealHint, "<b>Klik for at vise modalen frem</b>"],
     [langModalHeader, "Tilmeld dig her"],
     [langFirstName, "Fornavn"],
     [langLastName, "Efternavn"],
@@ -38,18 +38,18 @@ const danishLang = [
     [langLoading, "Indlæser"],
     [langThanks, "Tusind tak, du er nu tilmeldt"],
     [langError, "Kan desværre ikke registrer dig nu"],
-    [langErrorSub, "Prøv venligst senere"]
-]
-// set language according to browser lang
-let activeLang;
-if (window.navigator.language === "da") {
+    [langErrorSub, "Prøv venligst senere"],
+  ];
+  // set language according to browser lang
+  let activeLang;
+  if (window.navigator.language === "da") {
     activeLang = danishLang;
-} else {
+  } else {
     activeLang = englishLang;
-}
-let i = 0;
-document.querySelectorAll(".translate").forEach((e)=>{
-    e.innerHTML = activeLang[i][1];
+  }
+  let i = 0;
+  document.querySelectorAll(".translate").forEach((e) => {
+    e.innerText = activeLang[i][1];
     i++;
-});
+  });
 })();

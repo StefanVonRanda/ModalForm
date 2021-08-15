@@ -1,142 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ModalForm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/img/icon.svg" />
+    <link rel="mask-icon" href="img/icon.svg" color="#009688" />
+    <link rel="alternate icon" href="img/icon.ico" />
+    <meta
+      name="description"
+      content="ModalForm is a form in a modal, but that's not all!"
+    />
+    <style>
+      body > * {
+        visibility: hidden;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Modal form</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body>* {
-      visibility: hidden;
-    }
+      #preload {
+        visibility: visible;
+        will-change: opacity, visibility;
+        transition: opacity 500ms, visibility 500ms;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 99999;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
 
-    #preload {
-      visibility: visible;
-      will-change: opacity, visibility;
-      transition: opacity 500ms, visibility 500ms;
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      z-index: 99999;
-    }
-  </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-</head>
+  <body>
+    <div id="preload"></div>
+    <header>
+      <h1 class="translate" id="langHeader">Modalform in Action</h1>
+    </header>
+    <main>
+      <span>
+        <button
+          data-target="modal01"
+          data-toggle="modal"
+          class="translate"
+          id="langRevealButton"
+        >
+          Reveal
+        </button>
+        <p class="translate" id="langRevealHint">
+          Click to activate the modal.
+        </p>
+      </span>
+    </main>
+    <div id="modal01" class="modal">
+      <div class="modal-window">
+        <svg viewBox="0 0 16 16" class="close" data-dismiss="modal">
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+        <h3 class="translate" id="langModalHeader">Sign Me Up</h3>
+        <form method="POST">
+          <label for="fname">
+            <input
+              type="text"
+              name="name"
+              id="fname"
+              placeholder=" "
+              required
+            />
+            <span class="translate" id="langFirstName">First Name<i>*</i></span>
+          </label>
 
-<body>
-  <div id="preload"></div>
-  <header>
-    <h1 class="translate" id="langHeader">Modalform in Action</h1>
-  </header>
-  <main>
-    <span>
-      <button data-target="modal01" data-toggle="modal" class="translate" id="langRevealButton">Reveal</button>
-      <p class="translate" id="langRevealHint">Click a button to activate a modal.</p>
-    </span>
-  </main>
-  <div id="modal01" class="modal">
-    <div class="modal-window">
-      <svg viewBox="0 0 16 16" class="close" data-dismiss="modal">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path
-          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-      </svg>
-      <h3 class="translate" id="langModalHeader">Sign Me Up</h3>
-      <form method="POST">
-        <label for="fname">
-          <input type="text" name="name" id="fname" placeholder=" " required />
-          <span class="translate" id="langFirstName">First Name<i>*</i></span>
-        </label>
+          <label for="lname">
+            <input
+              type="text"
+              name="name"
+              id="lname"
+              placeholder=" "
+              required
+            />
+            <span class="translate" id="langLastName">Last Name<i>*</i></span>
+          </label>
 
-        <label for="lname">
-          <input type="text" name="name" id="lname" placeholder=" " required />
-          <span class="translate" id="langLastName">Last Name<i>*</i></span>
-        </label>
+          <label for="gender">
+            <select name="gender" id="gender">
+              <option
+                value="0"
+                class="translate"
+                id="langGenderHeader"
+                selected
+                disabled
+              >
+                Gender
+              </option>
+              <option value="1" class="translate" id="langGenderFemale">
+                Female
+              </option>
+              <option value="2" class="translate" id="langGenderMale">
+                Male
+              </option>
+              <option value="3" class="translate" id="langGenderNone">
+                None-binary
+              </option>
+            </select>
+          </label>
 
-        <label for="gender">
-          <select name="gender" id="gender">
-            <option value="0" class="translate" id="langGenderHeader" selected disabled>Gender</option>
-            <option value="1" class="translate" id="langGenderFemale">Female</option>
-            <option value="2" class="translate" id="langGenderMale">Male</option>
-            <option value="3" class="translate" id="langGenderNone">None-binary</option>
-          </select>
-        </label>
+          <label for="phone">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              pattern="[0-9]{8}"
+              minlength="8"
+              placeholder=" "
+            />
+            <span class="translate" id="langPhone">Phone Number</span>
+          </label>
 
-        <label for="phone">
-          <input type="tel" name="phone" id="phone" pattern="[0-9]{8}" minlength="8" placeholder=" " />
-          <span class="translate" id="langPhone">Phone Number</span>
-        </label>
-
-        <label for="mail">
-          <input type="email" name="mail" id="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder=" "
-            required />
-          <span class="translate" id="langEmail">Email*</span>
-        </label>
-        <label for="promo" class="checkbox">
-          <input type="checkbox" name="promo" id="promo" />
-          <div class="checkmark"></div>
-          <span class="label translate" id="langPromo">Receive promotional emails</span>
-        </label>
-        <label>
-          <button type="submit" class="translate" id="langSubmit">Sign Up</button>
-        </label>
-      </form>
-      <div class="progress hidden">
-        <span>
-          <h3 class="translate" id="langLoading">Loading</h3>
-          <svg viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
-            <path
-              d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
-          </svg>
-        </span>
-      </div>
-      <div class="complete hidden">
-        <span>
-          <h3 class="translate" id="langThanks">Thank you for signing up!</h3>
-          <svg viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-            <path
-              d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-          </svg>
-        </span>
-      </div>
-      <div class="error hidden">
-        <span>
-          <h3 class="translate" id="langError">Unable to sign you up</h3>
-          <p class="translate" id="langErrorSub">Please try again later</p>
-          <svg viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-            <path
-              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-          </svg>
-        </span>
+          <label for="mail">
+            <input
+              type="email"
+              name="mail"
+              id="mail"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              placeholder=" "
+              required
+            />
+            <span class="translate" id="langEmail">Email*</span>
+          </label>
+          <label for="promo" class="checkbox">
+            <input type="checkbox" name="promo" id="promo" />
+            <div class="checkmark"></div>
+            <span class="label translate" id="langPromo"
+              >Receive promotional emails</span
+            >
+          </label>
+          <label>
+            <button type="submit" class="translate" id="langSubmit">
+              Sign Up
+            </button>
+          </label>
+        </form>
+        <div class="progress hidden">
+          <span>
+            <h3 class="translate" id="langLoading">Loading</h3>
+            <svg viewBox="0 0 16 16">
+              <path
+                fill-rule="evenodd"
+                d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+              />
+              <path
+                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="complete hidden">
+          <span>
+            <h3 class="translate" id="langThanks">Thank you for signing up!</h3>
+            <svg viewBox="0 0 16 16">
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+              <path
+                d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="error hidden">
+          <span>
+            <h3 class="translate" id="langError">Unable to sign you up</h3>
+            <p class="translate" id="langErrorSub">Please try again later</p>
+            <svg viewBox="0 0 16 16">
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+              <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+          </span>
+        </div>
       </div>
     </div>
-  </div>
-  <script defer>
-    // largely redudant dom loaded check
-    window.addEventListener("load", () => {
-      // load css late
-      document
-        .querySelector("head")
-        .insertAdjacentHTML(
-          "beforeend",
-          '<link rel="stylesheet" type="text/css" href="/css/style.min.css">'
-        );
+    <script defer>
+      // largely redudant dom loaded check
+      window.addEventListener("load", () => {
+        // load css late
+        document
+          .querySelector("head")
+          .insertAdjacentHTML(
+            "beforeend",
+            '<link rel="stylesheet" type="text/css" href="/css/style.min.css">'
+          );
 
-      // fade in from white
-      const preload = document.querySelector("#preload");
-      preload.style.opacity = 0;
-      preload.style.visibility = "hidden";
-    });
-  </script>
-  <script src="js/lang.js" defer></script>
-  <script src="js/modal.js" defer></script>
-  <script src="js/form.js" defer></script>
-</body>
-
+        // fade in from white
+        const preload = document.querySelector("#preload");
+        preload.style.opacity = 0;
+        preload.style.visibility = "hidden";
+      });
+    </script>
+    <script src="js/lang.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/form.js" defer></script>
+  </body>
 </html>
