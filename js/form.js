@@ -33,10 +33,13 @@ document.querySelector("form").addEventListener("submit", (e) => {
       // display response object from api
       document.querySelector(".progress").classList.add("hidden");
       document.querySelector(".complete").classList.remove("hidden");
+      document.querySelector(".error").classList.add("hidden");
       console.log(data);
-      document.getElementById("results").innerHTML = `
-      <h3>Good news ${data.first_name}!</h3>
-      <p>You've been successfully signed up!</p>
-      `;
+    })
+    .catch((err)=>{
+      document.querySelector(".progress").classList.add("hidden");
+      document.querySelector(".complete").classList.remove("hidden");
+      document.querySelector(".error").classList.remove("hidden");
+      console.log(err);
     });
 });

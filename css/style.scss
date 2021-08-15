@@ -204,22 +204,24 @@ form {
         transform: translate(2px, -2.75rem);
       }
 
-      &[type="submit"] {
-        will-change: background, color;
-        transition: background 200ms, color 200ms;
-        height: 48px;
-        background: #eee;
-        color: var(--color);
-        border: unset;
-        border-radius: 0.5rem;
-        padding: 1rem 2rem;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-        cursor: pointer;
+      
+    }
 
-        &:hover {
-          background: #eee;
-          color: var(--gray);
-        }
+    button[type="submit"] {
+      will-change: background, color;
+      transition: background 200ms, color 200ms;
+      height: 48px;
+      background: #eee;
+      color: var(--color);
+      border: unset;
+      border-radius: 0.5rem;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+
+      &:hover {
+        background: #eee;
+        color: var(--gray);
       }
     }
 
@@ -241,7 +243,6 @@ form {
       display: none;
 
       &:checked + .checkmark {
-        //background: var(--accent);
         box-shadow: inset 0 0 0 2px var(--accent);
 
         &::after {
@@ -294,7 +295,8 @@ form {
 }
 
 .progress,
-.complete {
+.complete,
+.error {
   position: absolute;
   inset: 0;
   display: grid;
@@ -334,6 +336,17 @@ form {
     svg {
       width: 4rem;
       padding: 0;
+      animation: unset;
+    }
+  }
+}
+
+.error {
+  background: #ddd;
+  color: var(--red);
+  
+  span {
+    svg {
       animation: unset;
     }
   }
