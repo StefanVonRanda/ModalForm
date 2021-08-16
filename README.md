@@ -1,3 +1,3 @@
-# Hey, so this is my ModalForm
+# Hey, so this is ModalForm
 
-I focused on performance and implementing a minimal version of material design form elements. More to come.
+Hey, thanks for checking out the repo!
